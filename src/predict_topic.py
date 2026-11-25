@@ -1,13 +1,4 @@
-"""Assign topics to NEW reviews using the LDA model trained by topic_modelling.py.
 
-Run from the project root (with PYTHONPATH=src):
-
-    python src/predict_topic.py "battery backup is good but charger is slow"
-    python src/predict_topic.py "review one" "review two"
-    python src/predict_topic.py --csv data/new_reviews.csv --column Review
-    python src/predict_topic.py --init-labels      # create topic_labels.json to fill in
-
-"""
 
 import argparse
 import json

@@ -1,19 +1,4 @@
-"""LDA topic modelling of the reviews, and topic-vs-sentiment analysis.
 
-    python src/topic_modelling.py                         # all reviews, k chosen by coherence (3-10)
-    python src/topic_modelling.py --num-topics 6          # force k
-    python src/topic_modelling.py --per-category          # also one model per product category
-    python src/topic_modelling.py --category Electronics  # one category only
-
-How it differs from the first version
-  * apostrophes are handled ("don't" no longer leaves the word "don")
-  * romanized-Nepali opinion words and generic words are removed, so topics are
-    less about the language ("ramro, thikai, hunxa") or about nothing ("product, got")
-  * the model is trained on unique reviews with enough words, but EVERY review
-    still gets a topic (reviews with no usable word get topic -1, not dropped)
-  * k is searched from 3 to 10 using c_v coherence
-  * a model can be trained for one product category only (topics are cleaner)
-"""
 
 import argparse
 import json
