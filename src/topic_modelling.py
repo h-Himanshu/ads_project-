@@ -7,7 +7,7 @@ from pathlib import Path
 
 import matplotlib
 
-matplotlib.use("Agg")           # draw into image files only, no window
+matplotlib.use("Agg")           
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -18,7 +18,7 @@ from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 
 try:
     from gensim.models.phrases import FrozenPhrases as Phraser
-except ImportError:                                   # older gensim
+except ImportError:                                 
     from gensim.models.phrases import Phraser
 
 from data_loader import (
@@ -33,17 +33,12 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATA = PROJECT_ROOT / "data" / "review_dataset.csv"
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "results" / "review_dataset_topic_results"
 
-# ----------------------------------------------------------------------------
-# Stopwords. Words that carry no TOPIC meaning. (Negations and opinion words are
-# kept for sentiment, but removed here because they appear in every topic.)
-# EXTEND THESE LISTS after looking at your results, or put one word per line in
-# data/extra_stopwords.txt.
-# ----------------------------------------------------------------------------
+
 try:
     from nltk.corpus import stopwords as _nltk_stopwords
     ENGLISH_STOPWORDS = set(_nltk_stopwords.words("english"))
     STOPWORD_SOURCE = "NLTK"
-except Exception:                                      # package or corpus missing
+except Exception:                                      
     ENGLISH_STOPWORDS = set(ENGLISH_STOP_WORDS)
     STOPWORD_SOURCE = "scikit-learn"
 

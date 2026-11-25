@@ -8,9 +8,6 @@ import pandas as pd
 from gensim.models import LdaModel
 from gensim.models.phrases import Phraser 
 
-# IMPORTANT: reuse the SAME cleaning and tokenizing as training. If you change
-# tokenize() (lemmatization, bigrams, new stopwords) in topic_modelling.py, this
-# script picks the change up automatically. Just retrain the model afterwards.
 from data_loader import clean_text
 from topic_modelling import tokenize , apply_bigrams 
 
